@@ -25,12 +25,16 @@ struct AsyncView<T, V: View>: View {
             case .some(.failure(let error)):
                 Text("Error: \(error)" as String)
             case .none:
-                ProgressView().task {
-                    do {
-                        self.result = .success(try await run())
-                    } catch {
-                        self.result = .failure(error)
+                if #available(iOS 15.0, *) {
+                    ProgressView().task {
+                        do {
+                            self.result = .success(try await run())
+                        } catch {
+                            self.result = .failure(error)
+                        }
                     }
+                } else {
+                    // Fallback on earlier versions
                 }
             }
         }.id(result.debugDescription)
