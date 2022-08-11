@@ -10,14 +10,9 @@ import LASDK
 
 class ShortCode: NSObject, URLSessionDelegate, URLSessionTaskDelegate {
     
-    
-    struct Code: Codable {
-        var shortCode: String
-    }
-    
-    @available(iOS 15.0, *)
-    class func createShortCode(_ serverUrl: String, lasdk: LASDK, config: LASDK.Configuration) async throws -> TokenResult {
-        guard let serverInfo = try await lasdk.parseURL(serverUrl) else { throw OurErrors.nilURL }
+    class func createShortCode(config: Configuration) async throws -> ShortCode {
+//        let lasdk = await LASDK.configureSupport(config)
+        guard let serverInfo = try await AssistSDK.parseURL(config.server) else { throw OurErrors.nilURL }
         let host = serverInfo.host
         let scheme = serverInfo.scheme
         let port = serverInfo.port
@@ -28,18 +23,17 @@ class ShortCode: NSObject, URLSessionDelegate, URLSessionTaskDelegate {
         if !config.auditName.isEmpty {
             path = "?auditName=\(config.auditName)"
         }
-        
+
         let result = try await URLSession.shared.codableNetworkWrapper(
-            type: Code.self,
+            type: ShortCode.self,
             httpHost: url,
             urlPath: path,
             httpMethod: "PUT",
             timeoutInterval: Constants.SHORTCODE_REQUEST_TIMEOUT
         )
-        
-        let decodedData = try JSONDecoder().decode(Code.self, from: result.data)
-        let shortCode = decodedData.shortCode
-        
+
+        let decodedData = try JSONDecoder().decode(ShortCode.self, from: result.data)
+        guard let shortCode = decodedData.shortCode else { throw OurErrors.nilShortCode }
         
         var tokenPath = "\(Constants.TOKEN_ENDPOINT)\(shortCode)"
         if !config.auditName.isEmpty {
@@ -47,19 +41,51 @@ class ShortCode: NSObject, URLSessionDelegate, URLSessionTaskDelegate {
         }
         
         let tokenResult = try await URLSession.shared.codableNetworkWrapper(
-            type: TokenResult.self,
+            type: ShortCode.self,
             httpHost: url,
             urlPath: tokenPath,
             httpMethod: "GET",
             timeoutInterval: Constants.SHORTCODE_REQUEST_TIMEOUT
         )
-        
-        return try JSONDecoder().decode(TokenResult.self, from: tokenResult.data)
+
+        var tr = try JSONDecoder().decode(ShortCode.self, from: tokenResult.data)
+        tr.shortCode = shortCode
+        return tr
     }
     
-    struct TokenResult: Codable {
-        var cid: String
-        var sessionToken: String
+    struct ShortCode: Codable {
+        var cid: String?
+        var sessionToken: String?
+        var shortCode: String?
+        
+        enum CodingKeys: String, CodingKey {
+            case cid
+            case sessionToken = "session-token"
+            case shortCode
+        }
+        
+        internal init(
+            cid: String?,
+            sessionToken: String?,
+            shortCode: String?
+        ) {
+            self.cid = cid
+            self.sessionToken = sessionToken
+            self.shortCode = shortCode
+        }
+        internal init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            self.cid = try container.decodeIfPresent(String.self, forKey: .cid)
+            self.sessionToken = try container.decodeIfPresent(String.self, forKey: .sessionToken)
+            self.shortCode = try container.decodeIfPresent(String.self, forKey: .shortCode)
+        }
+        
+        internal func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encodeIfPresent(self.cid, forKey: .cid)
+            try container.encodeIfPresent(self.sessionToken, forKey: .sessionToken)
+            try container.encodeIfPresent(self.shortCode, forKey: .shortCode)
+        }
     }
     
     

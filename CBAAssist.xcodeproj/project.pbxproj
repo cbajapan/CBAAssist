@@ -14,6 +14,9 @@
 		095F19B727CF5B5C00A597BB /* AssistWebViewResprestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F19B627CF5B5C00A597BB /* AssistWebViewResprestable.swift */; };
 		095F19B927CF60C200A597BB /* NativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F19B827CF60C100A597BB /* NativeView.swift */; };
 		095F19BB27CF65D700A597BB /* SupportSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F19BA27CF65D700A597BB /* SupportSessionManager.swift */; };
+		098CC40328805AE2007D2516 /* SwiftLASDK in Frameworks */ = {isa = PBXBuildFile; productRef = 098CC40228805AE2007D2516 /* SwiftLASDK */; };
+		09D04A1B27E96D200092C783 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D04A1A27E96D200092C783 /* ConnectionView.swift */; };
+		09D04A1D27E96FEE0092C783 /* ConnectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D04A1C27E96FEE0092C783 /* ConnectionViewManager.swift */; };
 		09DEC0EA27CF404600779A21 /* CBAAssistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DEC0E927CF404600779A21 /* CBAAssistApp.swift */; };
 		09DEC0EC27CF404600779A21 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DEC0EB27CF404600779A21 /* ContentView.swift */; };
 		09DEC0EE27CF404600779A21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DEC0ED27CF404600779A21 /* Assets.xcassets */; };
@@ -25,10 +28,14 @@
 		091CF4DD27E85BA700B1CAC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		091CF4DF27E85C0000B1CAC9 /* ShortCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortCode.swift; sourceTree = "<group>"; };
 		091CF4E127E85F1E00B1CAC9 /* OurErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurErrors.swift; sourceTree = "<group>"; };
+		0942C3A128758440007EC993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		095F19B327CF5B1600A597BB /* AssistWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistWebView.swift; sourceTree = "<group>"; };
 		095F19B627CF5B5C00A597BB /* AssistWebViewResprestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistWebViewResprestable.swift; sourceTree = "<group>"; };
 		095F19B827CF60C100A597BB /* NativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeView.swift; sourceTree = "<group>"; };
 		095F19BA27CF65D700A597BB /* SupportSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportSessionManager.swift; sourceTree = "<group>"; };
+		098CC401288059FE007D2516 /* swift-lasdk */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "swift-lasdk"; path = "../swift-lasdk"; sourceTree = "<group>"; };
+		09D04A1A27E96D200092C783 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
+		09D04A1C27E96FEE0092C783 /* ConnectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionViewManager.swift; sourceTree = "<group>"; };
 		09DEC0E627CF404600779A21 /* CBAAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBAAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09DEC0E927CF404600779A21 /* CBAAssistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBAAssistApp.swift; sourceTree = "<group>"; };
 		09DEC0EB27CF404600779A21 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				098CC40328805AE2007D2516 /* SwiftLASDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +79,7 @@
 				09DEC0EB27CF404600779A21 /* ContentView.swift */,
 				095F19B327CF5B1600A597BB /* AssistWebView.swift */,
 				095F19B827CF60C100A597BB /* NativeView.swift */,
+				09D04A1A27E96D200092C783 /* ConnectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -79,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				095F19BA27CF65D700A597BB /* SupportSessionManager.swift */,
+				09D04A1C27E96FEE0092C783 /* ConnectionViewManager.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -119,6 +129,14 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		098CC400288059FE007D2516 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				098CC401288059FE007D2516 /* swift-lasdk */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		09C94F7B27D590E100FF5687 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +147,7 @@
 		09DEC0DD27CF404600779A21 = {
 			isa = PBXGroup;
 			children = (
+				098CC400288059FE007D2516 /* Packages */,
 				09DEC0E827CF404600779A21 /* CBAAssist */,
 				09DEC0E727CF404600779A21 /* Products */,
 				09C94F7B27D590E100FF5687 /* Frameworks */,
@@ -146,6 +165,7 @@
 		09DEC0E827CF404600779A21 /* CBAAssist */ = {
 			isa = PBXGroup;
 			children = (
+				0942C3A128758440007EC993 /* Info.plist */,
 				095F19B127CF5ADC00A597BB /* iOS */,
 				095F19B027CF5AD300A597BB /* Shared */,
 				09DEC0E927CF404600779A21 /* CBAAssistApp.swift */,
@@ -180,6 +200,7 @@
 			);
 			name = CBAAssist;
 			packageProductDependencies = (
+				098CC40228805AE2007D2516 /* SwiftLASDK */,
 			);
 			productName = CBAAssist;
 			productReference = 09DEC0E627CF404600779A21 /* CBAAssist.app */;
@@ -209,6 +230,8 @@
 				Base,
 			);
 			mainGroup = 09DEC0DD27CF404600779A21;
+			packageReferences = (
+			);
 			productRefGroup = 09DEC0E727CF404600779A21 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -235,8 +258,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09D04A1D27E96FEE0092C783 /* ConnectionViewManager.swift in Sources */,
 				09DEC0EC27CF404600779A21 /* ContentView.swift in Sources */,
 				095F19B727CF5B5C00A597BB /* AssistWebViewResprestable.swift in Sources */,
+				09D04A1B27E96D200092C783 /* ConnectionView.swift in Sources */,
 				09DEC0F827CF417A00779A21 /* AsyncView.swift in Sources */,
 				091CF4E027E85C0000B1CAC9 /* ShortCode.swift in Sources */,
 				095F19B427CF5B1600A597BB /* AssistWebView.swift in Sources */,
@@ -286,6 +311,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -309,6 +335,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
 			};
 			name = Debug;
 		};
@@ -347,6 +374,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -363,6 +391,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -375,9 +404,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CBAAssist/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6SMQB2LH3S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CBAAssist/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow Camera usage for Video Support";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please allow Microphone usage for Audio Support";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -385,14 +415,16 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cba-japan.CBAAssist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -406,9 +438,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CBAAssist/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6SMQB2LH3S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CBAAssist/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow Camera usage for Video Support";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please allow Microphone usage for Audio Support";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -416,14 +449,16 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cba-japan.CBAAssist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -451,6 +486,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		098CC40228805AE2007D2516 /* SwiftLASDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftLASDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 09DEC0DE27CF404600779A21 /* Project object */;
 }

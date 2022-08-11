@@ -13,8 +13,8 @@ struct NativeView: View {
     }
 }
 
-struct NativeView_Previews: PreviewProvider {
-    static var previews: some View {
-        NativeView()
-    }
-}
+//struct NativeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NativeView()
+//    }
+//}
