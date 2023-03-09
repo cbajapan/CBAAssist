@@ -6,22 +6,21 @@
 //
 
 import Foundation
-import LASDK
+import LASDKiOS
 
 class ShortCode: NSObject, URLSessionDelegate, URLSessionTaskDelegate {
     
     class func createShortCode(config: Configuration) async throws -> ShortCode {
-//        let lasdk = await LASDK.configureSupport(config)
-        guard let serverInfo = try await AssistSDK.parseURL(config.server) else { throw OurErrors.nilURL }
+        let serverInfo = try await AssistSDK.parseURL(config)
         let host = serverInfo.host
         let scheme = serverInfo.scheme
         let port = serverInfo.port
         let url = "\(scheme)://\(host):\(port)"
-        
+        let auditName = config.auditName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         var path = Constants.CREATE_SHORTCODE_ENDPOINT
-        
+
         if !config.auditName.isEmpty {
-            path = "?auditName=\(config.auditName)"
+            path += "?auditName=\(auditName)"
         }
 
         let result = try await URLSession.shared.codableNetworkWrapper(
@@ -37,7 +36,7 @@ class ShortCode: NSObject, URLSessionDelegate, URLSessionTaskDelegate {
         
         var tokenPath = "\(Constants.TOKEN_ENDPOINT)\(shortCode)"
         if !config.auditName.isEmpty {
-            tokenPath = "&auditName=\(config.auditName)"
+            tokenPath += "&auditName=\(auditName)"
         }
         
         let tokenResult = try await URLSession.shared.codableNetworkWrapper(

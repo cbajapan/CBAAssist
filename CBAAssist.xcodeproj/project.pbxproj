@@ -7,14 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0904DDA328FFACC2003CC2A6 /* NativeViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0904DDA228FFACC2003CC2A6 /* NativeViewRepresentable.swift */; };
+		0904DDA528FFAD83003CC2A6 /* NativeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0904DDA428FFAD83003CC2A6 /* NativeViewController.swift */; };
+		0904DDA728FFBC8F003CC2A6 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0904DDA628FFBC8F003CC2A6 /* TableViewCell.swift */; };
 		091CF4DE27E85BA700B1CAC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CF4DD27E85BA700B1CAC9 /* Constants.swift */; };
 		091CF4E027E85C0000B1CAC9 /* ShortCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CF4DF27E85C0000B1CAC9 /* ShortCode.swift */; };
 		091CF4E227E85F1E00B1CAC9 /* OurErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CF4E127E85F1E00B1CAC9 /* OurErrors.swift */; };
+		093B0D4C29BA33E400FE101F /* LASDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 093B0D4B29BA33E400FE101F /* LASDKiOS */; };
+		09431D8528B4CF72001A4CF3 /* DocumentShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09431D8428B4CF72001A4CF3 /* DocumentShareView.swift */; };
 		095F19B427CF5B1600A597BB /* AssistWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F19B327CF5B1600A597BB /* AssistWebView.swift */; };
 		095F19B727CF5B5C00A597BB /* AssistWebViewResprestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F19B627CF5B5C00A597BB /* AssistWebViewResprestable.swift */; };
 		095F19B927CF60C200A597BB /* NativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F19B827CF60C100A597BB /* NativeView.swift */; };
 		095F19BB27CF65D700A597BB /* SupportSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F19BA27CF65D700A597BB /* SupportSessionManager.swift */; };
-		098CC40328805AE2007D2516 /* SwiftLASDK in Frameworks */ = {isa = PBXBuildFile; productRef = 098CC40228805AE2007D2516 /* SwiftLASDK */; };
+		097259F6291B45A3007E5C53 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097259F5291B45A3007E5C53 /* View+Extensions.swift */; };
+		097259F8291B463C007E5C53 /* AppSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097259F7291B463C007E5C53 /* AppSettingsView.swift */; };
+		097259FA291B48F8007E5C53 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097259F9291B48F8007E5C53 /* AppSettings.swift */; };
+		09BDD9052901BB930024D159 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BDD9042901BB930024D159 /* ScrollViewController.swift */; };
+		09BDD9072901BC450024D159 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BDD9062901BC450024D159 /* TableViewController.swift */; };
+		09BDD90B2901C0410024D159 /* ControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BDD90A2901C0410024D159 /* ControlsViewController.swift */; };
 		09D04A1B27E96D200092C783 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D04A1A27E96D200092C783 /* ConnectionView.swift */; };
 		09D04A1D27E96FEE0092C783 /* ConnectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D04A1C27E96FEE0092C783 /* ConnectionViewManager.swift */; };
 		09DEC0EA27CF404600779A21 /* CBAAssistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DEC0E927CF404600779A21 /* CBAAssistApp.swift */; };
@@ -22,18 +32,29 @@
 		09DEC0EE27CF404600779A21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DEC0ED27CF404600779A21 /* Assets.xcassets */; };
 		09DEC0F127CF404600779A21 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DEC0F027CF404600779A21 /* Preview Assets.xcassets */; };
 		09DEC0F827CF417A00779A21 /* AsyncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DEC0F727CF417A00779A21 /* AsyncView.swift */; };
+		09FB771F2902DF53000C9C43 /* DocPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FB771E2902DF53000C9C43 /* DocPopover.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0904DDA228FFACC2003CC2A6 /* NativeViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeViewRepresentable.swift; sourceTree = "<group>"; };
+		0904DDA428FFAD83003CC2A6 /* NativeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeViewController.swift; sourceTree = "<group>"; };
+		0904DDA628FFBC8F003CC2A6 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		091CF4DD27E85BA700B1CAC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		091CF4DF27E85C0000B1CAC9 /* ShortCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortCode.swift; sourceTree = "<group>"; };
 		091CF4E127E85F1E00B1CAC9 /* OurErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurErrors.swift; sourceTree = "<group>"; };
 		0942C3A128758440007EC993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		09431D8428B4CF72001A4CF3 /* DocumentShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentShareView.swift; sourceTree = "<group>"; };
 		095F19B327CF5B1600A597BB /* AssistWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistWebView.swift; sourceTree = "<group>"; };
 		095F19B627CF5B5C00A597BB /* AssistWebViewResprestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistWebViewResprestable.swift; sourceTree = "<group>"; };
 		095F19B827CF60C100A597BB /* NativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeView.swift; sourceTree = "<group>"; };
 		095F19BA27CF65D700A597BB /* SupportSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportSessionManager.swift; sourceTree = "<group>"; };
-		098CC401288059FE007D2516 /* swift-lasdk */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "swift-lasdk"; path = "../swift-lasdk"; sourceTree = "<group>"; };
+		097259F5291B45A3007E5C53 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		097259F7291B463C007E5C53 /* AppSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsView.swift; sourceTree = "<group>"; };
+		097259F9291B48F8007E5C53 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		09855D0A28D43FF100129705 /* CBAAssist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CBAAssist.entitlements; sourceTree = "<group>"; };
+		09BDD9042901BB930024D159 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		09BDD9062901BC450024D159 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		09BDD90A2901C0410024D159 /* ControlsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsViewController.swift; sourceTree = "<group>"; };
 		09D04A1A27E96D200092C783 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
 		09D04A1C27E96FEE0092C783 /* ConnectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionViewManager.swift; sourceTree = "<group>"; };
 		09DEC0E627CF404600779A21 /* CBAAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBAAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +63,7 @@
 		09DEC0ED27CF404600779A21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09DEC0F027CF404600779A21 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		09DEC0F727CF417A00779A21 /* AsyncView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncView.swift; sourceTree = "<group>"; };
+		09FB771E2902DF53000C9C43 /* DocPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocPopover.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				098CC40328805AE2007D2516 /* SwiftLASDK in Frameworks */,
+				093B0D4C29BA33E400FE101F /* LASDKiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +102,9 @@
 				095F19B327CF5B1600A597BB /* AssistWebView.swift */,
 				095F19B827CF60C100A597BB /* NativeView.swift */,
 				09D04A1A27E96D200092C783 /* ConnectionView.swift */,
+				09431D8428B4CF72001A4CF3 /* DocumentShareView.swift */,
+				09FB771E2902DF53000C9C43 /* DocPopover.swift */,
+				097259F7291B463C007E5C53 /* AppSettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -89,6 +114,7 @@
 			children = (
 				095F19BA27CF65D700A597BB /* SupportSessionManager.swift */,
 				09D04A1C27E96FEE0092C783 /* ConnectionViewManager.swift */,
+				097259F9291B48F8007E5C53 /* AppSettings.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -96,6 +122,7 @@
 		095F19B027CF5AD300A597BB /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				097259F4291B458E007E5C53 /* Extensions */,
 				091CF4DC27E85B9E00B1CAC9 /* Utilities */,
 				095F19B227CF5B0000A597BB /* View */,
 				095F19AD27CF5ABF00A597BB /* Model */,
@@ -125,14 +152,27 @@
 			isa = PBXGroup;
 			children = (
 				095F19B627CF5B5C00A597BB /* AssistWebViewResprestable.swift */,
+				0904DDA228FFACC2003CC2A6 /* NativeViewRepresentable.swift */,
+				0904DDA428FFAD83003CC2A6 /* NativeViewController.swift */,
+				0904DDA628FFBC8F003CC2A6 /* TableViewCell.swift */,
+				09BDD9042901BB930024D159 /* ScrollViewController.swift */,
+				09BDD9062901BC450024D159 /* TableViewController.swift */,
+				09BDD90A2901C0410024D159 /* ControlsViewController.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		097259F4291B458E007E5C53 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				097259F5291B45A3007E5C53 /* View+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		098CC400288059FE007D2516 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				098CC401288059FE007D2516 /* swift-lasdk */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -165,6 +205,7 @@
 		09DEC0E827CF404600779A21 /* CBAAssist */ = {
 			isa = PBXGroup;
 			children = (
+				09855D0A28D43FF100129705 /* CBAAssist.entitlements */,
 				0942C3A128758440007EC993 /* Info.plist */,
 				095F19B127CF5ADC00A597BB /* iOS */,
 				095F19B027CF5AD300A597BB /* Shared */,
@@ -200,7 +241,7 @@
 			);
 			name = CBAAssist;
 			packageProductDependencies = (
-				098CC40228805AE2007D2516 /* SwiftLASDK */,
+				093B0D4B29BA33E400FE101F /* LASDKiOS */,
 			);
 			productName = CBAAssist;
 			productReference = 09DEC0E627CF404600779A21 /* CBAAssist.app */;
@@ -231,6 +272,7 @@
 			);
 			mainGroup = 09DEC0DD27CF404600779A21;
 			packageReferences = (
+				093B0D4A29BA33E400FE101F /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */,
 			);
 			productRefGroup = 09DEC0E727CF404600779A21 /* Products */;
 			projectDirPath = "";
@@ -258,15 +300,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09FB771F2902DF53000C9C43 /* DocPopover.swift in Sources */,
+				0904DDA528FFAD83003CC2A6 /* NativeViewController.swift in Sources */,
+				0904DDA728FFBC8F003CC2A6 /* TableViewCell.swift in Sources */,
+				09431D8528B4CF72001A4CF3 /* DocumentShareView.swift in Sources */,
 				09D04A1D27E96FEE0092C783 /* ConnectionViewManager.swift in Sources */,
+				0904DDA328FFACC2003CC2A6 /* NativeViewRepresentable.swift in Sources */,
+				097259FA291B48F8007E5C53 /* AppSettings.swift in Sources */,
 				09DEC0EC27CF404600779A21 /* ContentView.swift in Sources */,
 				095F19B727CF5B5C00A597BB /* AssistWebViewResprestable.swift in Sources */,
+				09BDD9072901BC450024D159 /* TableViewController.swift in Sources */,
 				09D04A1B27E96D200092C783 /* ConnectionView.swift in Sources */,
+				097259F6291B45A3007E5C53 /* View+Extensions.swift in Sources */,
 				09DEC0F827CF417A00779A21 /* AsyncView.swift in Sources */,
+				09BDD9052901BB930024D159 /* ScrollViewController.swift in Sources */,
 				091CF4E027E85C0000B1CAC9 /* ShortCode.swift in Sources */,
 				095F19B427CF5B1600A597BB /* AssistWebView.swift in Sources */,
 				09DEC0EA27CF404600779A21 /* CBAAssistApp.swift in Sources */,
+				09BDD90B2901C0410024D159 /* ControlsViewController.swift in Sources */,
 				095F19BB27CF65D700A597BB /* SupportSessionManager.swift in Sources */,
+				097259F8291B463C007E5C53 /* AppSettingsView.swift in Sources */,
 				091CF4E227E85F1E00B1CAC9 /* OurErrors.swift in Sources */,
 				095F19B927CF60C200A597BB /* NativeView.swift in Sources */,
 				091CF4DE27E85BA700B1CAC9 /* Constants.swift in Sources */,
@@ -401,20 +454,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CBAAssist/CBAAssist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"CBAAssist/Preview Content\"";
 				DEVELOPMENT_TEAM = 6SMQB2LH3S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CBAAssist/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow Camera usage for Video Support";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "\"Sharing Files\"";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please allow Microphone usage for Audio Support";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -424,7 +479,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cba-japan.CBAAssist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_STRICT_CONCURRENCY = minimal;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -435,20 +490,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CBAAssist/CBAAssist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"CBAAssist/Preview Content\"";
 				DEVELOPMENT_TEAM = 6SMQB2LH3S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CBAAssist/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow Camera usage for Video Support";
+				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "\"Sharing Files\"";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please allow Microphone usage for Audio Support";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -458,7 +515,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cba-japan.CBAAssist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_STRICT_CONCURRENCY = minimal;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -487,10 +544,22 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		093B0D4A29BA33E400FE101F /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cbajapan/swift-lasdk-ios.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		098CC40228805AE2007D2516 /* SwiftLASDK */ = {
+		093B0D4B29BA33E400FE101F /* LASDKiOS */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = SwiftLASDK;
+			package = 093B0D4A29BA33E400FE101F /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */;
+			productName = LASDKiOS;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

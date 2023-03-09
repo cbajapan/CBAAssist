@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import LASDK
+import LASDKiOS
 
-
+/// This is class is designed to respond to the user interface when there is a network change via the `ConnectionStatusDelegate`.
 class ConnectionViewManager: NSObject, ObservableObject, ConnectionStatusDelegate {
     
     @Published var statusText: String = ""
@@ -25,14 +25,14 @@ class ConnectionViewManager: NSObject, ObservableObject, ConnectionStatusDelegat
     @Published var myAttemptCnt = 0
     @Published var myMaxAttempts = 0
     @Published var myInSeconds: Float = 0.0
-//    @Published var updateRetry: Timer?
+    @Published var updateRetry: Timer?
     
-//    init() {
+    override init() {
 //        super.init(frame: CGRect(x: 300, y: 300, width: 400, height: 200))
-//        dismissError = false
-//        connected = false
-//        connectCnt = 0
-//
+        dismissError = false
+        connected = false
+        connectCnt = 0
+
 //        statusText = UILabel(frame: CGRect(x: 50, y: 20, width: 300, height: 40))
 //        reconnectionInfo = UILabel(frame: CGRect(x: 50, y: 80, width: 300, height: 40))
 //        retryNow = createButton(at: CGRect(x: 10, y: 150, width: 120, height: 50), text: "Retry Now", handler: Selector("doRetryNow:"))
@@ -45,15 +45,15 @@ class ConnectionViewManager: NSObject, ObservableObject, ConnectionStatusDelegat
 //        addSubview(retryNow)
 //        addSubview(giveUp)
 //        addSubview(dismiss)
-//    }
-//
+    }
+
 //    func createButton(at rect: CGRect, text: String?, handler: Selector) -> UIButton? {
-//        let button = UIButton(type: .custom)
-//        button.frame = rect
-//        button.setTitle(text, for: .normal)
-//        button.isUserInteractionEnabled = true
-//        button.addTarget(self, action: handler, for: .touchUpInside)
-//        return button
+////        let button = UIButton(type: .custom)
+////        button.frame = rect
+////        button.setTitle(text, for: .normal)
+////        button.isUserInteractionEnabled = true
+////        button.addTarget(self, action: handler, for: .touchUpInside)
+////        return button
 //    }
     
     func doDismiss() {
@@ -101,7 +101,6 @@ class ConnectionViewManager: NSObject, ObservableObject, ConnectionStatusDelegat
     
     func onConnect() async throws {
         print("Connection established!!")
-//        cancelUpdateTimer()
         
         connected = true
         retryNow = true
@@ -167,7 +166,6 @@ class ConnectionViewManager: NSObject, ObservableObject, ConnectionStatusDelegat
 //        }
 //    }
     
-    //TODO: - Make this all async/await
     func willRetry(_ inSeconds: Float, attempt: Int, of maxAttempts: Int, connector: Connector) async {
         
         myInSeconds = inSeconds
@@ -178,6 +176,9 @@ class ConnectionViewManager: NSObject, ObservableObject, ConnectionStatusDelegat
         myConnector = connector
         
         reconnectionInfo = String(format: "Re-connecting in %.1f (%i of %i)", inSeconds, attempt, maxAttempts)
+        
+        let error = NSError(domain: "UserAction", code: -1)
+        await myConnector?.terminate(error)
         
 //        cancelUpdateTimer()
         

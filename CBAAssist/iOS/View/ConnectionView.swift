@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-import LASDK
-
+import LASDKiOS
 
 struct ConnectionView: View {
     
