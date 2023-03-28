@@ -13,7 +13,7 @@
 		091CF4DE27E85BA700B1CAC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CF4DD27E85BA700B1CAC9 /* Constants.swift */; };
 		091CF4E027E85C0000B1CAC9 /* ShortCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CF4DF27E85C0000B1CAC9 /* ShortCode.swift */; };
 		091CF4E227E85F1E00B1CAC9 /* OurErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CF4E127E85F1E00B1CAC9 /* OurErrors.swift */; };
-		093EC2CE29D2D13C0020984A /* LASDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 093EC2CD29D2D13C0020984A /* LASDKiOS */; };
+		093EC2D129D2D4D00020984A /* LASDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 093EC2D029D2D4D00020984A /* LASDKiOS */; };
 		09431D8528B4CF72001A4CF3 /* DocumentShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09431D8428B4CF72001A4CF3 /* DocumentShareView.swift */; };
 		095F19B427CF5B1600A597BB /* AssistWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F19B327CF5B1600A597BB /* AssistWebView.swift */; };
 		095F19B727CF5B5C00A597BB /* AssistWebViewResprestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F19B627CF5B5C00A597BB /* AssistWebViewResprestable.swift */; };
@@ -71,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				093EC2CE29D2D13C0020984A /* LASDKiOS in Frameworks */,
+				093EC2D129D2D4D00020984A /* LASDKiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +241,7 @@
 			);
 			name = CBAAssist;
 			packageProductDependencies = (
-				093EC2CD29D2D13C0020984A /* LASDKiOS */,
+				093EC2D029D2D4D00020984A /* LASDKiOS */,
 			);
 			productName = CBAAssist;
 			productReference = 09DEC0E627CF404600779A21 /* CBAAssist.app */;
@@ -272,7 +272,7 @@
 			);
 			mainGroup = 09DEC0DD27CF404600779A21;
 			packageReferences = (
-				093EC2CC29D2CF8F0020984A /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */,
+				093EC2CF29D2D4D00020984A /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */,
 			);
 			productRefGroup = 09DEC0E727CF404600779A21 /* Products */;
 			projectDirPath = "";
@@ -547,9 +547,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		093EC2CC29D2CF8F0020984A /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */ = {
+		093EC2CF29D2D4D00020984A /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:cbajapan/swift-lasdk-ios.git";
+			repositoryURL = "https://github.com/cbajapan/swift-lasdk-ios.git";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -558,9 +558,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		093EC2CD29D2D13C0020984A /* LASDKiOS */ = {
+		093EC2D029D2D4D00020984A /* LASDKiOS */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 093EC2CC29D2CF8F0020984A /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */;
+			package = 093EC2CF29D2D4D00020984A /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */;
 			productName = LASDKiOS;
 		};
 /* End XCSwiftPackageProductDependency section */
