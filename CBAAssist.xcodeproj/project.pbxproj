@@ -21,6 +21,7 @@
 		097259F6291B45A3007E5C53 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097259F5291B45A3007E5C53 /* View+Extensions.swift */; };
 		097259F8291B463C007E5C53 /* AppSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097259F7291B463C007E5C53 /* AppSettingsView.swift */; };
 		097259FA291B48F8007E5C53 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097259F9291B48F8007E5C53 /* AppSettings.swift */; };
+		099EC7AC29FF5910005C8B73 /* LASDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 099EC7AB29FF5910005C8B73 /* LASDKiOS */; };
 		09BDD9052901BB930024D159 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BDD9042901BB930024D159 /* ScrollViewController.swift */; };
 		09BDD9072901BC450024D159 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BDD9062901BC450024D159 /* TableViewController.swift */; };
 		09BDD90B2901C0410024D159 /* ControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BDD90A2901C0410024D159 /* ControlsViewController.swift */; };
@@ -31,7 +32,6 @@
 		09DEC0EE27CF404600779A21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DEC0ED27CF404600779A21 /* Assets.xcassets */; };
 		09DEC0F127CF404600779A21 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DEC0F027CF404600779A21 /* Preview Assets.xcassets */; };
 		09DEC0F827CF417A00779A21 /* AsyncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DEC0F727CF417A00779A21 /* AsyncView.swift */; };
-		09E6759629FF535B00756B5F /* LASDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 09E6759529FF535B00756B5F /* LASDKiOS */; };
 		09FB771F2902DF53000C9C43 /* DocPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FB771E2902DF53000C9C43 /* DocPopover.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09E6759629FF535B00756B5F /* LASDKiOS in Frameworks */,
+				099EC7AC29FF5910005C8B73 /* LASDKiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +241,7 @@
 			);
 			name = CBAAssist;
 			packageProductDependencies = (
-				09E6759529FF535B00756B5F /* LASDKiOS */,
+				099EC7AB29FF5910005C8B73 /* LASDKiOS */,
 			);
 			productName = CBAAssist;
 			productReference = 09DEC0E627CF404600779A21 /* CBAAssist.app */;
@@ -272,7 +272,7 @@
 			);
 			mainGroup = 09DEC0DD27CF404600779A21;
 			packageReferences = (
-				09E6759429FF535B00756B5F /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */,
+				099EC7AA29FF5910005C8B73 /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */,
 			);
 			productRefGroup = 09DEC0E727CF404600779A21 /* Products */;
 			projectDirPath = "";
@@ -557,9 +557,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		09E6759429FF535B00756B5F /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */ = {
+		099EC7AA29FF5910005C8B73 /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:cbajapan/swift-lasdk-ios.git";
+			repositoryURL = "https://github.com/cbajapan/swift-lasdk-ios.git";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -568,9 +568,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		09E6759529FF535B00756B5F /* LASDKiOS */ = {
+		099EC7AB29FF5910005C8B73 /* LASDKiOS */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 09E6759429FF535B00756B5F /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */;
+			package = 099EC7AA29FF5910005C8B73 /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */;
 			productName = LASDKiOS;
 		};
 /* End XCSwiftPackageProductDependency section */
