@@ -1,3 +1,7 @@
+
+### Unwanted repo directories and files
+azure-pipelines.yml
+
 ### macOS ###
 # General
 .DS_Store
@@ -130,7 +134,9 @@ iOSInjectionProject/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 swift-fcsdk-ios
-*.xcframework
-
 swift-lasdk-ios
-
+LASDKiOS.xcframework
+FCSDKiOS.xcframework
+CBARealTime.xcframework
+WebRTC.xcframework
+*.xcframework
