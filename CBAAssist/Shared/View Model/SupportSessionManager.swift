@@ -23,8 +23,10 @@ final class SupportSessionManager: NSObject, ObservableObject, AgentCobrowseDele
     
     var topMargin: CGFloat = 50
     var bottomMargin: CGFloat = 50
-    var leftMargin: CGFloat = 30
-    var rightMargin: CGFloat = 30
+    var leftMargin: CGFloat = 15
+    var rightMargin: CGFloat = 15
+    
+    weak var constraintsDelegate: DocumentViewConstraints?
     
     func assistSDKWillAddAnnotation(_ notification: Notification?) {
         
@@ -116,6 +118,7 @@ final class SupportSessionManager: NSObject, ObservableObject, AgentCobrowseDele
         Task { @MainActor [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.supportTheSession()
+            strongSelf.constraintsDelegate?.topMargin = 100
         }
     }
     
@@ -234,7 +237,9 @@ final class SupportSessionManager: NSObject, ObservableObject, AgentCobrowseDele
 
 extension SupportSessionManager {
     func assistSDKDidEncounterError(_ error: LASDKErrors) {
-        self.errorCode = error.localizedDescription
+        Task { @MainActor in
+            self.errorCode = error.localizedDescription
+        }
         print("\(#function)", error)
         switch error {
         case .fcsdkSessionFailure:
@@ -402,3 +407,20 @@ extension SupportSessionManager: ACBUCDelegate, ACBClientCallDelegate {
     
 }
 
+
+
+extension UIApplication {
+    
+    @MainActor
+    public var firstWindowScence: UIWindowScene? {
+        return UIApplication.shared.connectedScenes
+            .filter { $0.activationState == .foregroundActive }
+            .first(where: { $0 is UIWindowScene })
+            .flatMap({ $0 as? UIWindowScene })
+    }
+    
+    @MainActor
+    public var orientation: UIInterfaceOrientation? {
+        return UIApplication.shared.firstWindowScence?.interfaceOrientation
+    }
+}
