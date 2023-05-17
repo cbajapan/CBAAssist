@@ -1,0 +1,113 @@
+# Xcode
+# Build, test, and archive an Xcode workspace on macOS.
+# Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/xcode
+
+trigger:
+  branches:
+    include:
+      - main
+  tags:
+    include:
+      - '*'
+
+variables:
+- group: liveassist
+- name: Configuration
+  value: 'Release'
+- name: SDK
+  value: 'iphoneos'
+- ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}: ## This is when we push a tag or manually select a tag when doing a manual run
+  - name: VERSION
+    value: $(Build.SourceBranchName) ## This should set VERSION to be the tag, e.g '1.0.3'.
+- ${{ else }}:            ## Every other kind of build on any branch will be snapshot
+  - name: VERSION
+    value: SNAPSHOT
+
+pool:
+  vmImage: 'macOS-12'
+
+name: $(Date:yyyyMMdd)$(Rev:.r)_$(Build.SourceBranchName)
+
+steps:
+
+- task: InstallAppleCertificate@2
+  inputs:
+    certSecureFile: 'AzurePipelinesDist.p12' #Distribution cert
+    certPwd: '$(AzurePipelinesDistCertPassword)'
+    keychain: 'temp'
+
+- task: InstallAppleProvisioningProfile@1
+  displayName: Install CBAAssist Distribution Profile
+  inputs:
+    provProfileSecureFile: 'Azure_DevOps_CBAAssist_Dist.mobileprovision' #Distribution profile
+    provisioningProfileLocation: 'secureFiles'
+
+- task: DownloadSecureFile@1
+  name: exportArchiveOptions
+  inputs:
+    secureFile: 'exportArchiveOptions.plist'
+
+- ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}:
+  - task: Bash@3
+    displayName: Update Build Number
+    inputs:
+      targetType: 'inline'
+      script: |
+        buildNumber=$(git rev-list --count head)
+        fastlane run increment_build_number build_number:$buildNumber xcodeproj:${BUILD_SOURCESDIRECTORY}/CBAAssist.xcodeproj
+
+- task: Xcode@5
+  inputs:
+    actions: 'build'
+    xcWorkspacePath: 'CBAAssist.xcodeproj'
+    scheme: 'CBAAssist'
+    packageApp: true
+    archivePath: 'CBAAssist.xcarchive'
+    exportPath: 'archive-export'
+    exportOptions: 'plist'
+    exportOptionsPlist: "$(exportArchiveOptions.secureFilePath)"
+    signingOption: 'default'
+    args: 'APP_PROFILE="553cb3f6-3159-4f32-8fc2-01068a8668f8"'
+
+- ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}:
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(Build.SourcesDirectory)/CBAAssist'
+      includeRootFolder: false
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/CBAAssist-$(VERSION).zip'
+      replaceExistingArchive: true
+      verbose: true
+
+  - task: GitHubRelease@1
+    inputs:
+      gitHubConnection: 'github.com_cba-orchestration'
+      repositoryName: 'cbajapan/CBAAssist'
+      action: 'create'
+      target: '$(Build.SourceBranchName)'
+      tagSource: 'gitTag'
+      tagPattern: '[0-9]\.[0-9]\d?(\.[0-9]\d?)?'
+      assets: '$(Build.ArtifactStagingDirectory)/CBAAssist-$(VERSION).zip'
+      addChangeLog: false
+
+- task: CopyFiles@2
+  inputs:
+    Contents: |
+      **/*.ipa
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    flattenFolders: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'CBAAssist'
+    publishLocation: 'Container'
+
+- ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/main') }}:
+  - task: Appknox@2
+    displayName: Appknox Vulnerability Scan
+    inputs:
+      filePath: '$(Build.ArtifactStagingDirectory)/CBAAssist.ipa'
+      accessToken: '7537b790e8cc02713bfd3b2dd81a43ecc237e014'
+      riskThreshold: 'critical'
