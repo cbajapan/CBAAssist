@@ -10,6 +10,7 @@
 		0904DDA328FFACC2003CC2A6 /* NativeViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0904DDA228FFACC2003CC2A6 /* NativeViewRepresentable.swift */; };
 		0904DDA528FFAD83003CC2A6 /* NativeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0904DDA428FFAD83003CC2A6 /* NativeViewController.swift */; };
 		0904DDA728FFBC8F003CC2A6 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0904DDA628FFBC8F003CC2A6 /* TableViewCell.swift */; };
+		0915D19C2A14DFB90027A8E5 /* LASDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 0915D19B2A14DFB90027A8E5 /* LASDKiOS */; };
 		091CF4DE27E85BA700B1CAC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CF4DD27E85BA700B1CAC9 /* Constants.swift */; };
 		091CF4E027E85C0000B1CAC9 /* ShortCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CF4DF27E85C0000B1CAC9 /* ShortCode.swift */; };
 		091CF4E227E85F1E00B1CAC9 /* OurErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CF4E127E85F1E00B1CAC9 /* OurErrors.swift */; };
@@ -21,7 +22,6 @@
 		097259F6291B45A3007E5C53 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097259F5291B45A3007E5C53 /* View+Extensions.swift */; };
 		097259F8291B463C007E5C53 /* AppSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097259F7291B463C007E5C53 /* AppSettingsView.swift */; };
 		097259FA291B48F8007E5C53 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097259F9291B48F8007E5C53 /* AppSettings.swift */; };
-		099EC7AC29FF5910005C8B73 /* LASDKiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 099EC7AB29FF5910005C8B73 /* LASDKiOS */; };
 		09BDD9052901BB930024D159 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BDD9042901BB930024D159 /* ScrollViewController.swift */; };
 		09BDD9072901BC450024D159 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BDD9062901BC450024D159 /* TableViewController.swift */; };
 		09BDD90B2901C0410024D159 /* ControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BDD90A2901C0410024D159 /* ControlsViewController.swift */; };
@@ -71,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				099EC7AC29FF5910005C8B73 /* LASDKiOS in Frameworks */,
+				0915D19C2A14DFB90027A8E5 /* LASDKiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +241,7 @@
 			);
 			name = CBAAssist;
 			packageProductDependencies = (
-				099EC7AB29FF5910005C8B73 /* LASDKiOS */,
+				0915D19B2A14DFB90027A8E5 /* LASDKiOS */,
 			);
 			productName = CBAAssist;
 			productReference = 09DEC0E627CF404600779A21 /* CBAAssist.app */;
@@ -272,7 +272,7 @@
 			);
 			mainGroup = 09DEC0DD27CF404600779A21;
 			packageReferences = (
-				099EC7AA29FF5910005C8B73 /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */,
+				0915D19A2A14DFB90027A8E5 /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */,
 			);
 			productRefGroup = 09DEC0E727CF404600779A21 /* Products */;
 			projectDirPath = "";
@@ -463,11 +463,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CBAAssist/CBAAssist.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"CBAAssist/Preview Content\"";
-				DEVELOPMENT_TEAM = 6SMQB2LH3S;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CBAAssist/Info.plist;
@@ -485,9 +485,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cba-japan.CBAAssist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = $APP_PROFILE;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = minimal;
 				SWIFT_VERSION = 5.0;
@@ -501,11 +500,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CBAAssist/CBAAssist.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"CBAAssist/Preview Content\"";
-				DEVELOPMENT_TEAM = 6SMQB2LH3S;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CBAAssist/Info.plist;
@@ -523,9 +522,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cba-japan.CBAAssist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = $APP_PROFILE;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = minimal;
 				SWIFT_VERSION = 5.0;
@@ -557,9 +555,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		099EC7AA29FF5910005C8B73 /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */ = {
+		0915D19A2A14DFB90027A8E5 /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/cbajapan/swift-lasdk-ios.git";
+			repositoryURL = "git@github.com:cbajapan/swift-lasdk-ios.git";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -568,9 +566,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		099EC7AB29FF5910005C8B73 /* LASDKiOS */ = {
+		0915D19B2A14DFB90027A8E5 /* LASDKiOS */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 099EC7AA29FF5910005C8B73 /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */;
+			package = 0915D19A2A14DFB90027A8E5 /* XCRemoteSwiftPackageReference "swift-lasdk-ios" */;
 			productName = LASDKiOS;
 		};
 /* End XCSwiftPackageProductDependency section */
