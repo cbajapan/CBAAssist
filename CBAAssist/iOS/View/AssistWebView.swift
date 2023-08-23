@@ -19,6 +19,7 @@ struct AssistWebView: View {
     @State var documentURL: URL?
     @State var webView = WKWebView()
     @State var showPopover = false
+    @AppStorage("CorrelationID") var correlationId: String = ""
     
     @EnvironmentObject var supportSessionManager: SupportSessionManager
     @EnvironmentObject var appSettings: AppSettings
@@ -43,6 +44,23 @@ struct AssistWebView: View {
                 }
                 VStack {
                     Spacer()
+                    if !correlationId.isEmpty {
+                        HStack {
+                            Button("Pause") {
+                                Task {
+                                    await supportSessionManager.assistSDK?.pauseCobrowse()
+                                }
+                            }
+                            Button("Resume") {
+                                Task {
+                                    await supportSessionManager.assistSDK?.resumeCobrowse()
+                                }
+                            }
+                            Button("End") {
+                                supportSessionManager.assistSDK?.endSupport()
+                            }
+                        }
+                    }
                     HStack {
                         Button(action: {
                             showSupportAlert = true

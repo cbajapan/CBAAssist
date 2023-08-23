@@ -179,15 +179,5 @@ class ConnectionViewManager: NSObject, ObservableObject, ConnectionStatusDelegat
         
         let error = NSError(domain: "UserAction", code: -1)
         await myConnector?.terminate(error)
-        
-//        cancelUpdateTimer()
-        
-//        updateRetry = Timer.scheduledTimer(
-//            timeInterval: 1.0,
-//            target: self,
-//            selector: #selector(updateRetryTime),
-//            userInfo: nil,
-//            repeats: true)
-        
     }
 }

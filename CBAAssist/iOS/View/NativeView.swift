@@ -20,14 +20,14 @@ struct NativeView: View {
             if UIDevice.current.userInterfaceIdiom == .pad {
                 Button("", action: {})
                     .popover(isPresented: $showDocPop) {
-                        DocPopover(urlString: $urlString, openPicker: $openPicker)
-                            .frame(width: 400, height: 400)
+//                        DocPopover(urlString: $urlString, openPicker: $openPicker)
+//                            .frame(width: 400, height: 400)
                     }
                 NativeViewRepresentable(showPop: $showDocPop)
             } else if UIDevice.current.userInterfaceIdiom == .phone {
                 NativeViewRepresentable(showPop: $showDocPop)
                     .popover(isPresented: $showDocPop) {
-                        DocPopover(urlString: $urlString, openPicker: $openPicker)
+//                        DocPopover(urlString: $urlString, openPicker: $openPicker)
                     }
             }
         }

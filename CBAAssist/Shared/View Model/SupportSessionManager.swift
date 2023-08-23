@@ -9,7 +9,6 @@ import LASDKiOS
 import UIKit
 import SwiftUI
 import OSLog
-import FCSDKiOS
 
 final class SupportSessionManager: NSObject, ObservableObject, AgentCobrowseDelegate, ScreenShareRequestedDelegate, AssistSDKDelegate, AssistErrorReporter, ConsumerDocumentDelegate, AnnotationDelegate, @unchecked Sendable, DocumentViewConstraints {
     
@@ -61,7 +60,7 @@ final class SupportSessionManager: NSObject, ObservableObject, AgentCobrowseDele
     //App Settings
     @AppStorage("SupportURL") var supportServerAddess: String = ""
     @AppStorage("CorrelationID") var correlationId: String = ""
-    @AppStorage("Username") var username = ""
+    @AppStorage("AgentToCall") var agentToCall = ""
     @AppStorage("uui") var uui: String?
     @AppStorage("AcceptSelfSignedCerts") var acceptSelfSignedCerts = false
     @AppStorage("AuditName") var auditName = ""
@@ -69,13 +68,12 @@ final class SupportSessionManager: NSObject, ObservableObject, AgentCobrowseDele
     //App Setup
     @AppStorage("maskingTags") var maskingTags: Data?
     @AppStorage("maskColor") var maskColor: Data?
-
     
     func hexadecimalCode(for string: String) -> String {
+        let string = string.lowercased()
         let data = Data(string.utf8)
         return data.map{ String(format:"%02x", $0) }.joined()
     }
-    
     
     func setDefault(_ default: SetDefault?, _ data: Data?) throws -> (SetDefault?, Data?) {
         if `default` != nil {
@@ -100,8 +98,7 @@ final class SupportSessionManager: NSObject, ObservableObject, AgentCobrowseDele
     
     @MainActor
     func setUpDefaults() {
-        uui = hexadecimalCode(for: correlationId)
-        
+        uui = hexadecimalCode(for: agentToCall.lowercased())
         do {
             let result = try setDefault(tags, nil)
             maskingTags = result.1
@@ -116,20 +113,20 @@ final class SupportSessionManager: NSObject, ObservableObject, AgentCobrowseDele
     override init() {
         super.init()
         Task { @MainActor [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.supportTheSession()
-            strongSelf.constraintsDelegate?.topMargin = 100
+            guard let self else { return }
+            self.supportTheSession()
+            self.constraintsDelegate?.topMargin = 100
         }
     }
     
     deinit {
-        print("Reclaiming memory fro Support Session Manager")
+        print("Reclaiming memory from Support Session Manager")
     }
     
     func addDelegate() {
         Task { @MainActor [weak self] in
-            guard let strongSelf = self else { return }
-                AssistSDK.addDelegate(strongSelf)
+            guard let self else { return }
+                AssistSDK.addDelegate(self)
             }
         }
     
@@ -144,17 +141,18 @@ final class SupportSessionManager: NSObject, ObservableObject, AgentCobrowseDele
             guard let uui = uui else { return }
             self.config = Configuration(
                 server: supportServerAddess.lowercased(),
-                autoStart: true,
-                destination:  username.lowercased(),
+                autoStart: false,
+                destination: agentToCall.lowercased(),
                 maskingTags: tags,
                 maskColor: color,
-                correlationId: correlationId,
-                uui: uui,
+                correlationId: correlationId.lowercased(),
+                uui: uui.lowercased(),
                 videoMode: .full,
-                acceptSelfSignedCerts: acceptSelfSignedCerts,
+                acceptSelfSignedCerts: true,
                 keepAnnotationsOnChange: true,
-                auditName: auditName,
-//                agentCobrowseDelegate: self,
+                auditName: auditName.lowercased(),
+                agentCobrowseDelegate: self,
+                screenShareRequestedDelegate: self,
                 documentViewConstraints: self,
                 isProgrammaticUI: true
             )
@@ -163,7 +161,8 @@ final class SupportSessionManager: NSObject, ObservableObject, AgentCobrowseDele
             print(error)
         }
     }
-
+    
+  
     @MainActor
     func startSupportSession(_ config: Configuration? = nil) async {
         //Make call to start support session
@@ -189,24 +188,27 @@ final class SupportSessionManager: NSObject, ObservableObject, AgentCobrowseDele
     
     func requestShortCode() async {
         do {
-            if self.config == nil { await supportTheSession() }
+            if self.config == nil { supportTheSession() }
             guard let config = self.config else { return }
             guard let uui = uui else { return }
             let result = try await ShortCode.createShortCode(config: config)
+
+            //Change Config on
             self.config = Configuration(
                 server: supportServerAddess.lowercased(),
-                destination: "",
                 maskColor: .darkGray,
-                correlationId: result.cid ?? "",
-                uui: uui,
+                correlationId: result.cid?.lowercased() ?? "",
+                uui: uui.lowercased(),
                 sessionToken: result.sessionToken ?? "",
                 acceptSelfSignedCerts: true,
-                auditName: auditName,
+                keepAnnotationsOnChange: true,
+                auditName: auditName.lowercased(),
                 connectionDelegate: connectionViewManager,
                 retryIntervals: [2.0, 5.0, 10.0, 15.0],
                 initialConnectionTimeout: 2,
                 maxReconnectTimeouts: [1.0],
                 screenShareRequestedDelegate: self,
+                documentViewConstraints: self,
                 isProgrammaticUI: true
             )
             guard let config = self.config else { return }
@@ -216,6 +218,7 @@ final class SupportSessionManager: NSObject, ObservableObject, AgentCobrowseDele
             print(error)
         }
     }
+    
     @MainActor
     func presentShortCodeResult(_ shortCode: String) async {
         self.shortCode = !shortCode.isEmpty ? "\(shortCode)" : "An error occurred obtaining the Code!"
@@ -229,8 +232,8 @@ final class SupportSessionManager: NSObject, ObservableObject, AgentCobrowseDele
     
     func dismissShortCode() async {
         self.presentShortCode = false
-        await connectionView?.reset()
-        await self.assistSDK?.endSupport()
+        connectionView?.reset()
+        self.assistSDK?.endSupport()
     }
 }
 
@@ -238,7 +241,7 @@ final class SupportSessionManager: NSObject, ObservableObject, AgentCobrowseDele
 extension SupportSessionManager {
     func assistSDKDidEncounterError(_ error: LASDKErrors) {
         Task { @MainActor in
-            self.errorCode = error.localizedDescription
+            self.errorCode = "\(error)"
         }
         print("\(#function)", error)
         switch error {
@@ -285,6 +288,7 @@ extension SupportSessionManager {
         }
     }
     
+    
     func cobrowseActiveDidChange(to active: Bool) {
         print("\(#function)", active)
     }
@@ -294,11 +298,11 @@ extension SupportSessionManager {
         assistSDK = nil
         config = nil
         Task { @MainActor [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.connectionViewManager = nil
-            strongSelf.connectionView = nil
-            strongSelf.maskingTags = nil
-            strongSelf.maskColor = nil
+            guard let self else { return }
+            self.connectionViewManager = nil
+            self.connectionView = nil
+            self.maskingTags = nil
+            self.maskColor = nil
         }
     }
     
@@ -320,7 +324,6 @@ extension SupportSessionManager {
     }
     
     func agentRequestedCobrowse(_ agent: Agent) async {
-        print("AGENT_REQUEST___")
         await AssistSDK.shared.allowCobrowse(for: agent)
     }
     
@@ -335,7 +338,7 @@ extension SupportSessionManager {
     
     func assistSDKScreenShareRequested(_ allow: @escaping @MainActor @Sendable () -> Void, deny: @escaping @MainActor @Sendable () -> Void) async {
         Logger(subsystem: "Session Manager", category: "Screenshare Delegate").info("Request for screen share called.")
-        await allow()
+        allow()
     }
     
     func consumerShareURL(_ url: URL) async {
@@ -394,10 +397,7 @@ extension SupportSessionManager: ACBUCDelegate, ACBClientCallDelegate {
         await uc.startSession()
     }
 
-    func didStartSession(_ uc: ACBUC) async {
-//        let phone = uc.phone
-//        let call = try await phone.createCall(toAddress: "", withAudio: .sendAndReceive, video: .sendAndReceive, delegate: self)
-    }
+    func didStartSession(_ uc: ACBUC) async {}
     
     func didChange(_ status: ACBClientCallStatus, call: ACBClientCall) async {
         if status == .inCall {
