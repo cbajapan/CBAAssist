@@ -28,7 +28,7 @@ struct DocPopover: View {
                 } else {
                     // Fallback on earlier versions
                 }
- 
+
                 if #available(iOS 15.0, *) {
                     Section("Share Content") {
                         Button("Use Picker to Share Content") {
@@ -44,9 +44,3 @@ struct DocPopover: View {
         }
     }
 }
-
-//struct DocPopover_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DocPopover()
-//    }
-//}

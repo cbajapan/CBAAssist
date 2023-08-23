@@ -15,7 +15,7 @@ final class AppSettings: ObservableObject {
     @Published var supportServerAddess = UserDefaults.standard.string(forKey: "SupportURL") ?? ""
     @Published var iconImage = UserDefaults.standard.string(forKey: "IconImage") ?? ""
     @Published var agent = UserDefaults.standard.string(forKey: "Agent") ?? ""
-    @Published var username = UserDefaults.standard.string(forKey: "Username") ?? ""
+    @Published var agentToCall = UserDefaults.standard.string(forKey: "AgentToCall") ?? ""
     @Published var correlationId = UserDefaults.standard.string(forKey: "CorrelationID") ?? ""
     @Published var userToUserInfo = UserDefaults.standard.string(forKey: "UserInfo") ?? ""
     @Published var auditName = UserDefaults.standard.string(forKey: "AuditName") ?? ""
